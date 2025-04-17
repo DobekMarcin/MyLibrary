@@ -1,5 +1,6 @@
 package com.example.firstproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -21,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initViews();
+
+        btnAllBooks.setOnClickListener(e->{
+            Intent intent = new Intent(MainActivity.this, AllBooksActivity.class);
+            startActivity(intent);
+        });
 
     }
 
