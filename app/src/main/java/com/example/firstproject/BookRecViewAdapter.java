@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,10 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
             Toast.makeText(mContext, books.get(position).getName() + "Selected", Toast.LENGTH_SHORT).show();
         });
 
+        if(books.get(position).isExpanded()){
+
+        }
+
     }
 
     @Override
@@ -62,6 +67,9 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
         private CardView parent;
         private ImageView imgBook;
         private TextView txtBookName;
+        private ImageView btnDownArrow, btnUpArrow;
+        private RelativeLayout collapsedRelLayout, expandedRelLayout;
+        private TextView  txtAuthor, txtShortDesc;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -69,6 +77,26 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
             parent = itemView.findViewById(R.id.parent);
             imgBook = itemView.findViewById(R.id.imgBook);
             txtBookName = itemView.findViewById(R.id.txtBookName);
+            btnDownArrow = itemView.findViewById(R.id.btnDownArrow);
+            btnUpArrow = itemView.findViewById(R.id.btnUpArrow);
+            collapsedRelLayout = itemView.findViewById(R.id.collapsedRelLayout);
+            expandedRelLayout = itemView.findViewById(R.id.expandedRelLayout);
+            txtAuthor = itemView.findViewById(R.id.txtAuthor);
+            txtShortDesc = itemView.findViewById(R.id.txtShortDesc);
+
+            btnDownArrow.setOnClickListener(e->{
+                Book selectedBook = books.get(getAdapterPosition());
+                selectedBook.setExpanded(!selectedBook.isExpanded());
+                notifyItemChanged(getAdapterPosition());
+
+            });
+
+            btnUpArrow.setOnClickListener(e->{
+                Book selectedBook = books.get(getAdapterPosition());
+                selectedBook.setExpanded(!selectedBook.isExpanded());
+                notifyItemChanged(getAdapterPosition());
+
+            });
         }
     }
 }
