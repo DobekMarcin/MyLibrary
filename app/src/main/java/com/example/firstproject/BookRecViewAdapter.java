@@ -1,6 +1,9 @@
 package com.example.firstproject;
 
+import static com.example.firstproject.BookActivity.BOOK_ID_KEY;
+
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +48,11 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
                 .into(holder.imgBook);
 
         holder.parent.setOnClickListener(e->{
-            Toast.makeText(mContext, books.get(position).getName() + "Selected", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(mContext, books.get(position).getName() + "Selected", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(mContext,BookActivity.class);
+            intent.putExtra(BOOK_ID_KEY,books.get(position).getId());
+            mContext.startActivity(intent);
+
         });
 
         holder.txtAuthor.setText(books.get(position).getAuthor());
