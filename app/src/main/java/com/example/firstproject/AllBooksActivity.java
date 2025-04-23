@@ -32,6 +32,8 @@ public class AllBooksActivity extends AppCompatActivity {
 
         ArrayList<Book> books = new ArrayList<>();
         books.add(new Book(1, "1Q84", "Haruki Murakami", 100, "https://readinggroupchoices.com/wp/wp-content/uploads/2016/08/1Q84-High-Res-718x1024.jpg", "Short description", "Long description"));
+        books.add(new Book(2, "Harry Potter 2", "J.K.Rowling", 345, "https://addisber.com/wp-content/uploads/2021/03/photo_2021-03-18_14-17-42-2-600x600.jpg", "Short description", "Long description"));
+
         adapter.setBooks(books);
     }
 }
