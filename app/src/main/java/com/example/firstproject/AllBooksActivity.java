@@ -8,7 +8,11 @@ import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class AllBooksActivity extends AppCompatActivity {
 
@@ -18,11 +22,16 @@ public class AllBooksActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+     //   EdgeToEdge.enable(this);
         setContentView(R.layout.activity_all_books);
 
         adapter = new BookRecViewAdapter(this);
         booksRecView = findViewById(R.id.booksRecView);
         booksRecView.setAdapter(adapter);
+        booksRecView.setLayoutManager(new LinearLayoutManager(this));
+
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(new Book(1, "1Q84", "Haruki Murakami", 100, "https://readinggroupchoices.com/wp/wp-content/uploads/2016/08/1Q84-High-Res-718x1024.jpg", "Short description", "Long description"));
+        adapter.setBooks(books);
     }
 }
