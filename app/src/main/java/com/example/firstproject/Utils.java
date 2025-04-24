@@ -82,4 +82,12 @@ public class Utils {
         }
         return null;
     }
+
+    public boolean addBookToAlreadyRead(Book book){
+            return alreadyReadBooks.add(book);
+    }
+
+    public boolean addBookToWantToReadList(Book book){
+        return wantToReadBooks.add(book);
+    }
 }

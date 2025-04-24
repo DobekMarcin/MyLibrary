@@ -28,6 +28,14 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Utils.getInstance();
+
+        btnAlreadyRead.setOnClickListener(e->{
+            Intent intent = new Intent(this, AlreadyReadBookActivity.class);
+            startActivity(intent);
+
+        });
+
     }
 
     private void initViews() {
