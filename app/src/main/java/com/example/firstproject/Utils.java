@@ -90,4 +90,11 @@ public class Utils {
     public boolean addBookToWantToReadList(Book book){
         return wantToReadBooks.add(book);
     }
+    public boolean addBookToCurrentlyReading(Book book){
+        return currentlyReadingBooks.add(book);
+    }
+
+    public boolean addBookToFavouriteReading(Book book){
+        return favoriteBooks.add(book);
+    }
 }
