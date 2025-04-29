@@ -1,14 +1,18 @@
 package com.example.firstproject;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.time.temporal.WeekFields;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,6 +56,22 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, FavouriteReadingBooks.class);
             startActivity(intent);
 
+        });
+
+        btnAbout.setOnClickListener(e->{
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.app_name);
+            builder.setMessage("Developed by Marcin Dobek. My first Android app.\n"+
+                    "Check my website for more app!");
+            builder.setNegativeButton("Dismiss", (dialog, which) -> {
+
+            });
+            builder.setPositiveButton("Visit", (dialog, which) -> {
+                Intent intent = new Intent(this, WebsiteActivity.class);
+                intent.putExtra("url", "https://www.google.com/");
+                startActivity(intent);
+            });
+            builder.create().show();
         });
 
     }

@@ -1,8 +1,10 @@
 package com.example.firstproject;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
@@ -25,6 +27,9 @@ public class AllBooksActivity extends AppCompatActivity {
      //   EdgeToEdge.enable(this);
         setContentView(R.layout.activity_all_books);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      //  overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+
         adapter = new BookRecViewAdapter(this,"allBooks");
         booksRecView = findViewById(R.id.booksRecView);
         booksRecView.setAdapter(adapter);
@@ -32,5 +37,26 @@ public class AllBooksActivity extends AppCompatActivity {
 
 
         adapter.setBooks(Utils.getInstance().getAllBooks());
+    }
+
+//    @Override
+//    public void finish() {
+//        super.finish();
+//        overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+//    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                break;
+
+            default:
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
