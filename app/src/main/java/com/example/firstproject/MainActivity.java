@@ -36,6 +36,24 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        btnCurrentlyReading.setOnClickListener(e->{
+            Intent intent = new Intent(this, CurrentlyReadingBooks.class);
+            startActivity(intent);
+
+        });
+
+        btnWantToRead.setOnClickListener(e->{
+            Intent intent = new Intent(this, WantToReadActivity.class);
+            startActivity(intent);
+
+        });
+
+        btnFavorite.setOnClickListener(e->{
+            Intent intent = new Intent(this, FavouriteReadingBooks.class);
+            startActivity(intent);
+
+        });
+
     }
 
     private void initViews() {
