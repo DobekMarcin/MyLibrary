@@ -16,7 +16,7 @@ public class CurrentlyReadingBooks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+    //    EdgeToEdge.enable(this);
         setContentView(R.layout.activity_currently_reading_books);
 
         RecyclerView recyclerView = findViewById(R.id.bookRecView);
@@ -24,7 +24,7 @@ public class CurrentlyReadingBooks extends AppCompatActivity {
         BookRecViewAdapter bookRecViewAdapter = new BookRecViewAdapter(this,"currentlyReading");
         recyclerView.setAdapter(bookRecViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        bookRecViewAdapter.setBooks(Utils.getInstance().getCurrentlyReadingBooks());
+        bookRecViewAdapter.setBooks(Utils.getInstance(this).getCurrentlyReadingBooks());
     }
 
     @Override

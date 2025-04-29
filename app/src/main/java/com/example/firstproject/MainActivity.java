@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    //    EdgeToEdge.enable(this);
+      //  EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         initViews();
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        Utils.getInstance();
+        Utils.getInstance(this);
 
         btnAlreadyRead.setOnClickListener(e->{
             Intent intent = new Intent(this, AlreadyReadBookActivity.class);

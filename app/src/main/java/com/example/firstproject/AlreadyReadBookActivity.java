@@ -18,7 +18,7 @@ public class AlreadyReadBookActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+   //     EdgeToEdge.enable(this);
         setContentView(R.layout.activity_already_read_book);
 
 
@@ -27,7 +27,7 @@ public class AlreadyReadBookActivity extends AppCompatActivity {
         BookRecViewAdapter bookRecViewAdapter = new BookRecViewAdapter(this,"alreadyRead");
         recyclerView.setAdapter(bookRecViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        bookRecViewAdapter.setBooks(Utils.getInstance().getAlreadyReadBooks());
+        bookRecViewAdapter.setBooks(Utils.getInstance(this).getAlreadyReadBooks());
     }
 
     @Override
